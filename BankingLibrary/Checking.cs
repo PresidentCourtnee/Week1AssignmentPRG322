@@ -13,6 +13,7 @@ namespace BankingLibrary
         public double DepAmount;
         public double WDAmount;
         public double TransAmt;
+        public int AcctBal;
     
         public override string ToString()
         {

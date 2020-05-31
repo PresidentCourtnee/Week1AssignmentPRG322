@@ -15,7 +15,8 @@ namespace BankingApp
             Savings savings = new Savings();
 
             checking.AcctName = "Primary Checking";
-           
+            savings.AcctName = "Primary Savings";
+
             Console.WriteLine(checking);
             Console.WriteLine(savings);
         }
