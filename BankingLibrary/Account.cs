@@ -9,14 +9,37 @@ namespace BankingLibrary
 { //this is the base class
     public class Account
     {// Here is am setting some variables
-        public double RoutNum;
-        public string CustFName;
-        public string CustLName;
-        public double PhoneNum;
+       public int AccountNumber { get; set; }
+        public double Balance { get; set; }
+        public Customer Cust { get; set; }
+        
 
+        public Account (Customer cust, int AccNo, double balance)
+        {
+            AccountNumber = AccNo;
+            Balance = balance;
+            Cust = cust;
+        }// Provides the Deposit and balance
+        public void deposit(double amount)
+        {
+            Balance += amount;
+        }
         public override string ToString()
-        {//This information below is what will be viewable on the console applications
-            return string.Format("Customer First Name: {0}, Customer Last Name: {1}\n Customer Phone Number: {2}\n Routing Number: {3}\n",CustFName,CustLName,PhoneNum,RoutNum);
+        {
+            return Cust.ToString()+"\nAccount Number: "+AccountNumber+"\nBalance: $ "+Balance;
+        }
+
+        //Happens when there is a Withdrawal unless there is not enough funds the displays a message
+        public void withdraw(double amount)
+        {
+            if (amount <= Balance)
+            {
+                Balance -= amount;
+            }
+            else
+            {
+                Console.WriteLine("Cannot withdraw this amount from account");
+            }
         }
     }
 }
